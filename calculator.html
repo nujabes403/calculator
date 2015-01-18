@@ -1,0 +1,60 @@
+		
+		<!-- Input Bar -->
+		<div class="row">
+		<div class="col-xs-5"></div>
+		<label>INPUT : </label>{{inputBarResult}}
+		</div>
+		
+		<!-- Reset / Erase Button -->
+		<div class="row">
+		<div class="col-xs-5">
+		</div>
+		<button class="btn btn-warning" style="width:70px" ng-click="allReset()">RESET</button> 
+		<button class="btn btn-warning" style="width:50px" ng-click="erase()"><-</button> 
+		<button class="btn btn-warning" style="width:50px" ng-click="calculate()">=</button>
+		</div>
+
+		<!-- Operator Button -->
+		<div class="row">
+		<div class="col-xs-5"></div>
+		<button ng-repeat="item in operators" style="width:30px" class="btn btn-success" ng-click="inputToCal(item)">{{item}}</button>
+		</div>
+
+		<!-- Number Button -->
+		<div class="row">
+		<div class="col-xs-5"></div>
+		<button ng-repeat="calNum in calArr1" style="width:60px" class="btn btn-primary" ng-click='inputToCal(calNum)'>{{calNum}}</button>
+		</div>
+		
+		<div class="row">
+		<div class="col-xs-5"></div>
+		<button ng-repeat="calNum in calArr2" style="width:60px" class="btn btn-primary" ng-click='inputToCal(calNum)'>{{calNum}}</button>
+		</div>
+		
+		<div class="row">
+		<div class="col-xs-5"></div>
+		<button ng-repeat="calNum in calArr3" style="width:60px" class="btn btn-primary" ng-click='inputToCal(calNum)'>{{calNum}}</button>
+		</div>
+		
+		<div class="row">
+		<div class="col-xs-5"></div>
+		<button style="width:180px" class="btn btn-primary" ng-click="inputToCal(0)">0</button>
+		</div>
+
+		<!-- Result Bar-->
+		<div class="row">
+		<div class="col-xs-5"></div>
+		<label><h3>RESULT : {{result}}</h3></label>
+		</div>
+
+		<!-- History Bar -->
+		<div class="row">
+		<div class="col-xs-5"></div>
+		<label>
+		<h3>History : <button class="btn btn-warning" ng-click="removeHistory()">REMOVE</button>
+		<ul>
+		<li ng-repeat="item in histories" ng-click="upHistory(item.expression)"><a>{{$index+1+". "+item.expression + "=" + item.result}}</a></li>
+		</ul>
+		</h3>
+		</label>
+		</div>
