@@ -10,7 +10,6 @@ angular.module("calApp",[])
 		$scope.operators = ['+','-','*','/','(',')'];
 		$scope.histories = [];
 
-		// Main Logic
 		$scope.inputToCal = function (input){
 
 			if($scope.inputBar.length==0 && input == 0){
@@ -39,20 +38,5 @@ angular.module("calApp",[])
 				$scope.inputBar = new Array();
 				$scope.inputBarResult = 0;
 			};
-
-
-		// History Logic
-		$scope.history = function (expression,result){
-			$scope.histories.push({expression:expression,result:result});
-		};
-
-		$scope.upHistory = function (expression){
-			$scope.inputBar = expression.split('');
-			$scope.inputBarResult = expression;
-		};
-
-		$scope.removeHistory = function (){
-			$scope.histories = [];
-		};
 	
 	});

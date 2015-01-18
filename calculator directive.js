@@ -6,12 +6,36 @@ angular.module("calApp")
 			templateUrl:"calculator.html"
 		};
 	})
+	.directive("calHistory",function(){
+		return {
+		restrict:"E",
+		controller:"calCtrl",
+		templateUrl:"history.html",
+		link:function($scope){
+
+		$scope.history = function (expression,result){
+			$scope.histories.push({expression:expression,result:result});
+		};
+
+		$scope.upHistory = function (expression){
+			$scope.inputBar = expression.split('');
+			$scope.inputBarResult = expression;
+		};
+
+		$scope.removeHistory = function (){
+			$scope.histories = [];
+		};
+
+		}
+	}
+	})
 	.directive("keyCheck",["$document",function($document){
 		return {
 			controller:"calCtrl",
 			link:function($scope){
 
 			$document.on("keydown",function(e){
+			
 			var keyEvent = e;
 			
 			// BackSpace Key

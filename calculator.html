@@ -47,14 +47,4 @@
 		<label><h3>RESULT : {{result}}</h3></label>
 		</div>
 
-		<!-- History Bar -->
-		<div class="row">
-		<div class="col-xs-5"></div>
-		<label>
-		<h3>History : <button class="btn btn-warning" ng-click="removeHistory()">REMOVE</button>
-		<ul>
-		<li ng-repeat="item in histories" ng-click="upHistory(item.expression)"><a>{{$index+1+". "+item.expression + "=" + item.result}}</a></li>
-		</ul>
-		</h3>
-		</label>
-		</div>
+		
