@@ -9,24 +9,8 @@ angular.module("calApp")
 	.directive("calHistory",function(){
 		return {
 		restrict:"E",
-		controller:"calCtrl",
-		templateUrl:"history.html",
-		link:function($scope){
-
-		$scope.history = function (expression,result){
-			$scope.histories.push({expression:expression,result:result});
-		};
-
-		$scope.upHistory = function (expression){
-			$scope.inputBar = expression.split('');
-			$scope.inputBarResult = expression;
-		};
-
-		$scope.removeHistory = function (){
-			$scope.histories = [];
-		};
-
-		}
+		controller:"historyCtrl",
+		templateUrl:"history.html"
 	}
 	})
 	.directive("keyCheck",["$document",function($document){
